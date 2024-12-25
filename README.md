@@ -1,10 +1,10 @@
 ### NAME: KIRAN KUMAR CS
-### REG NO: 24002365
-# EXPERIMENT 7: SYNCHRONOUS UP COUNTER
+### REGISTER NO: 24002365
+# EXPERIMENT 6 : IMPLEMENTATION OF SERIAL IN SERIAL OUT SHIFTREGISTER
 
 # AIM:
 
-To implement 4 bit synchronous up counter and validate functionality.
+To implement  SISO Shift Register using verilog and validating their functionality using their functional tables
 
 # SOFTWARE REQUIRED:
 
@@ -12,51 +12,48 @@ Quartus prime
 
 # THEORY
 
-*4 bit synchronous UP Counter*
+## SISO shift Register
 
-If we enable each J-K flip-flop to toggle based on whether or not all preceding flip-flop outputs (Q) are “high,” we can obtain the same counting sequence as the asynchronous circuit without the ripple effect, since each flip-flop in this circuit will be clocked at exactly the same time:
+A Serial-In Serial-Out shift register is a sequential logic circuit that allows data to be shifted in and out one bit at a time in a serial manner. It consists of a cascade of flip-flops connected in series, forming a chain. The input data is applied to the first flip-flop in the chain, and as the clock pulses, the data propagates through the flip-flops, ultimately appearing at the output.
 
-![image](https://github.com/naavaneetha/SYNCHRONOUS-UP-COUNTER/assets/154305477/d5db3fa0-e413-404c-b80e-b2f39d82e7e8)
+The logic circuit provided below demonstrates a serial-in serial-out (SISO) shift register. It comprises four D flip-flops that are interconnected in a sequential manner. These flip-flops operate synchronously with one another, as they all receive the same clock signal.
 
+![image](https://github.com/naavaneetha/SERIAL-IN-SERIAL-OUT-SHIFTREGISTER/assets/154305477/e81c4072-37f9-46c6-8145-566764b74c3a)
 
-![image](https://github.com/naavaneetha/SYNCHRONOUS-UP-COUNTER/assets/154305477/52cb61eb-d04b-442d-810c-31185a68410b)
+Figure 01 4 Bit SISO Register
 
-Each flip-flop in this circuit will be clocked at exactly the same time.
-The result is a four-bit synchronous “up” counter. Each of the higher-order flip-flops are made ready to toggle (both J and K inputs “high”) if the Q outputs of all previous flip-flops are “high.”
-Otherwise, the J and K inputs for that flip-flop will both be “low,” placing it into the “latch” mode where it will maintain its present output state at the next clock pulse.
-Since the first (LSB) flip-flop needs to toggle at every clock pulse, its J and K inputs are connected to Vcc or Vdd, where they will be “high” all the time.
-The next flip-flop need only “recognize” that the first flip-flop’s Q output is high to be made ready to toggle, so no AND gate is needed.
-However, the remaining flip-flops should be made ready to toggle only when all lower-order output bits are “high,” thus the need for AND gates.
+The synchronous nature of the flip-flops ensures that the shifting of data occurs in a coordinated manner. When the clock signal rises, the input data is sampled and stored in the first flip-flop. On subsequent clock pulses, the stored data propagates through the flip-flops, moving from one flip-flop to the next.
+Each D flip-flop in the circuit has a Data (D) input, a Clock (CLK) input, and an output (Q). The D input represents the data to be loaded into the flip-flop, while the CLK input is connected to the common clock signal. The output (Q) of each flip-flop is connected to the D input of the next flip-flop, forming a cascade.
 
-# PROCEDURE
+# Procedure
 
-    1.Initialize the shift register to a known state (e.g., all zeros).
-    
-    2.Input a bit serially into the shift register.
-    
-    3.Shift the contents of the register one position to the right (or left).
-    
-    4.Output the shifted bit from the last stage of the register.
-    
-    5.Repeat steps 2-4 for each bit you want to input and shift.
-    
+  1.Initialize the shift register to a known state (e.g., all zeros).
+  
+  2.Input a bit serially into the shift register.
+  
+  3.Shift the contents of the register one position to the right (or left).
+  
+  4.Output the shifted bit from the last stage of the register.
+  
+  5.Repeat steps 2-4 for each bit you want to input and shift.
+
+  
 # PROGRAM
 
-![Screenshot 2024-12-22 131908](https://github.com/user-attachments/assets/55b8c240-420b-4aa9-adbb-6985839e3eac)
-
-# TRUTH TABLE
-
-![Screenshot 2024-12-22 165950](https://github.com/user-attachments/assets/7e5753ae-2d50-46b0-b30d-77209a3bad91)
+![Screenshot 2024-12-22 114654](https://github.com/user-attachments/assets/6dd14cdd-bf7c-400b-ace9-b10ee9b32558)
 
 
-# RTL LOGIC UP COUNTER
-
-![Screenshot 2024-12-22 131940](https://github.com/user-attachments/assets/285c571c-b8da-4de0-878b-4538bfd384f1)
 
 
-# TIMING DIAGRAM FOR IP COUNTER
+# RTL LOGIC FOR SISO Shift Register
 
-![Screenshot 2024-12-22 133044](https://github.com/user-attachments/assets/754ee35c-761d-45a1-90c1-0a6a12111fdf)
+![Screenshot 2024-12-22 114718](https://github.com/user-attachments/assets/1f6352f1-b2d2-4e82-86f3-f19c96d570cb)
+
+
+# TIMING DIGRAMS FOR SISO Shift Register
+
+![Screenshot 2024-12-22 130807](https://github.com/user-attachments/assets/aeda62f5-3cd3-43e3-a105-6c9b73e5801d)
+
 
 # RESULT
-Thus,the 4-bit synchronus Up counter implemented successfully.
+The implementation of the SISO shift register in Verilog and validating their functionality was executed successfully.
